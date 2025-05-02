@@ -214,15 +214,6 @@ UK_rare_local_common_national <- sum(UK_data$count <= uk_local_cutoff &
 UK_common_local_rare_national <- sum(UK_data$count > uk_local_cutoff & 
                                     UK_data$FRDBI_count <= uk_national_cutoff) / nrow(UK_data)
 
-# Create table similar to Table 1 in the paper
-UK_rarity_table <- data.frame(
-  Category = c("Rare at both scales", "Common at both scales", 
-               "Rare local, common national", "Common local, rare national"),
-  Percentage = c(UK_rare_both, UK_common_both, 
-                 UK_rare_local_common_national, UK_common_local_rare_national) * 100
-)
-print(UK_rarity_table)
-
 # Repeat for Swiss data
 swiss_local_cutoff <- quantile(Swiss_data$count, 0.25)
 swiss_national_cutoff <- quantile(Swiss_data$National_count, 0.25)
@@ -250,7 +241,7 @@ Swiss_rare_local_common_national <- sum(Swiss_data$count <= swiss_local_cutoff &
 Swiss_common_local_rare_national <- sum(Swiss_data$count > swiss_local_cutoff & 
                                        Swiss_data$National_count <= swiss_national_cutoff) / nrow(Swiss_data)
 
-# Create Swiss rarity table
+# Swiss rarity table
 Swiss_rarity_table <- data.frame(
   Category = c("Rare at both scales", "Common at both scales", 
                "Rare local, common national", "Common local, rare national"),
@@ -261,4 +252,4 @@ print(Swiss_rarity_table)
 ```
 
 ##### Original Figure
-![](img/figure6_original.png)
+![](img/figure6git config pull.rebase false_original.png)
